@@ -29,13 +29,16 @@ type RoarAppSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of RoarApp. Edit roarapp_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Replicas int32  `json:"replicas"`
+	WebImage string `json:"webImage,omitempty"`
+	DbImage  string `json:"dbImage,omitempty"`
 }
 
 // RoarAppStatus defines the observed state of RoarApp
 type RoarAppStatus struct {
 	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
+	PodNames []string `json:"podNames"`
 }
 
 //+kubebuilder:object:root=true

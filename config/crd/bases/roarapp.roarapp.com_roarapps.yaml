@@ -36,13 +36,30 @@ spec:
           spec:
             description: RoarAppSpec defines the desired state of RoarApp
             properties:
-              foo:
+              dbImage:
+                type: string
+              replicas:
                 description: Foo is an example field of RoarApp. Edit roarapp_types.go
                   to remove/update
+                format: int32
+                type: integer
+              webImage:
                 type: string
+            required:
+            - replicas
             type: object
           status:
             description: RoarAppStatus defines the observed state of RoarApp
+            properties:
+              podNames:
+                description: 'INSERT ADDITIONAL STATUS FIELD - define observed state
+                  of cluster Important: Run "make" to regenerate code after modifying
+                  this file'
+                items:
+                  type: string
+                type: array
+            required:
+            - podNames
             type: object
         type: object
     served: true
