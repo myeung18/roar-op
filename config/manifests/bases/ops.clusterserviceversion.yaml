@@ -1,0 +1,46 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[]'
+    capabilities: Basic Install
+  name: ops.v0.0.0
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: RoarApp is the Schema for the roarapps API
+      displayName: Roar App
+      kind: RoarApp
+      name: roarapps.roarapp.roarapp.com
+      version: v1alpha1
+  description: Roar from learning - desc
+  displayName: Roar from learning
+  icon:
+  - base64data: ""
+    mediatype: ""
+  install:
+    spec:
+      deployments: null
+    strategy: ""
+  installModes:
+  - supported: false
+    type: OwnNamespace
+  - supported: false
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - roar
+  - safe
+  links:
+  - name: Ops
+    url: https://ops.domain
+  maturity: alpha
+  provider:
+    name: Roar Inc
+    url: Roar in URL
+  version: 0.0.0
