@@ -106,6 +106,9 @@ docker-lab-build: test
 docker-lab-push: test
 	docker push "$(shell oc get route default-route -n openshift-image-registry -o jsonpath="{.spec.host}")/$(IMAGE_REPOSITORY):$(IMAGE_TAG)"
 
+docker-lab-login:
+	docker login -u opentlc-mgr -p $(shell oc whoami -t) $(shell oc get route default-route -n openshift-image-registry -o jsonpath="{.spec.host}")
+
 docker-push: ## Push docker image with the manager.
 	docker push ${IMG}
 
