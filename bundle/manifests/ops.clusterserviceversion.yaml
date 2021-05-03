@@ -155,6 +155,7 @@ spec:
                 command:
                 - /manager
                 image: quay.io/myeung/roar-ops:0.0.1
+                imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -207,7 +208,7 @@ spec:
         serviceAccountName: ops-controller-manager
     strategy: deployment
   installModes:
-  - supported: false
+  - supported: true
     type: OwnNamespace
   - supported: false
     type: SingleNamespace
