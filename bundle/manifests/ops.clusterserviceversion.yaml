@@ -154,7 +154,7 @@ spec:
                 - --leader-elect
                 command:
                 - /manager
-                image: controller:latest
+                image: quay.io/myeung/roar-ops:0.0.1
                 livenessProbe:
                   httpGet:
                     path: /healthz
