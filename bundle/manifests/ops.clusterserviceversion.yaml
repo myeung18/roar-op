@@ -154,8 +154,12 @@ spec:
                 - --leader-elect
                 command:
                 - /manager
+                env:
+                - name: WATCH_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.annotations['olm.targetNamespaces']
                 image: quay.io/myeung/roar-ops:0.0.1
-                imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
                     path: /healthz

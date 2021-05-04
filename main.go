@@ -111,6 +111,7 @@ func main() {
 		os.Exit(1)
 	}
 }
+
 // getWatchNamespace returns the Namespace the operator should be watching for changes
 func getWatchNamespace() (string, error) {
 	// WatchNamespaceEnvVar is the constant for env variable WATCH_NAMESPACE
