@@ -1,0 +1,9 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: ops-catalog
+  namespace: mss-dev
+spec:
+  displayName: ops (roar) Operators
+  image: quay.io/myeung/roar-ops-index:v0.0.1
+  sourceType: grpc
