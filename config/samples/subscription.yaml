@@ -5,6 +5,6 @@ metadata:
   namespace: mss-dev
 spec:
   channel: alpha
-  name: ops
+  name: ops-operator
   source: ops-catalog
   sourceNamespace: mss-dev

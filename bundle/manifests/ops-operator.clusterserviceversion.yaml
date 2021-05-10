@@ -11,26 +11,26 @@ metadata:
             "name": "roarapp-sample"
           },
           "spec": {
-            "foo": "bar"
+            "dbImage": "quay.io/bclaster/roar-db:1.0.2",
+            "replicas": 1,
+            "webImage": "quay.io/bclaster/roar-web:1.0.1"
           }
         }
       ]
     capabilities: Basic Install
     operators.operatorframework.io/builder: operator-sdk-v1.6.1+git
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
-  name: ops.v0.0.1
+  name: ops-operator.v0.0.1
   namespace: placeholder
 spec:
   apiservicedefinitions: {}
   customresourcedefinitions:
     owned:
-    - description: RoarApp is the Schema for the roarapps API
-      displayName: Roar App
-      kind: RoarApp
+    - kind: RoarApp
       name: roarapps.roarapp.roarapp.com
       version: v1alpha1
-  description: Roar from learning - desc
-  displayName: Roar from learning
+  description: Ops Operator description. TODO.
+  displayName: Ops Operator
   icon:
   - base64data: ""
     mediatype: ""
@@ -142,7 +142,7 @@ spec:
                 - --upstream=http://127.0.0.1:8080/
                 - --logtostderr=true
                 - --v=10
-                image: gcr.io/kubebuilder/kube-rbac-proxy:v0.8.0
+                image: gcr.io/kubebuilder/kube-rbac-proxy:v0.5.0
                 name: kube-rbac-proxy
                 ports:
                 - containerPort: 8443
@@ -212,7 +212,7 @@ spec:
         serviceAccountName: ops-controller-manager
     strategy: deployment
   installModes:
-  - supported: true
+  - supported: false
     type: OwnNamespace
   - supported: false
     type: SingleNamespace
@@ -221,13 +221,15 @@ spec:
   - supported: true
     type: AllNamespaces
   keywords:
-  - roar
-  - safe
+  - ops-operator
   links:
-  - name: Ops
-    url: https://ops.domain
+  - name: Ops Operator
+    url: https://ops-operator.domain
+  maintainers:
+  - email: your@email.com
+    name: Maintainer Name
   maturity: alpha
   provider:
-    name: Roar Inc
-    url: Roar in URL
+    name: Provider Name
+    url: https://your.domain
   version: 0.0.1
